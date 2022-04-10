@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.5</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>thank267.images</groupId>
+	<artifactId>serving</artifactId>
+	<version>0.0.7-SNAPSHOT</version>
+	<name>serving</name>
+	<description>Image Resizing</description>
+	<packaging>war</packaging>
+
+
+	<repositories>
+	    <repository>
+            <id>my-internal-lib</id>
+            <url>file://~/.m2/repository</url>
+        </repository>
+    </repositories>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-bootstrap -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-zookeeper-config</artifactId>
+		    <version>3.0.2</version>
+		</dependency>
+		<dependency>
+        	<groupId>thank267.commons.models</groupId>
+        	<artifactId>models</artifactId>
+        	<version>1.75</version>
+        </dependency>
+		<dependency>
+        	<groupId>thank267.commons.configs</groupId>
+        	<artifactId>configs</artifactId>
+        	<version>1.1.1</version>
+        </dependency>
+		<dependency>
+        	<groupId>thank267.commons.repository</groupId>
+        	<artifactId>repository</artifactId>
+        	<version>1.1.1</version>
+        </dependency>
+		<dependency>
+        	<groupId>thank267.commons.utils</groupId>
+        	<artifactId>utils</artifactId>
+        	<version>1.8.3</version>
+        </dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<finalName>${artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<systemPropertyVariables>
+						<property1>jute.maxbuffer</property1>
+						<property2>0x9fffff</property2>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                     <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<jvmArguments>-Xms64m</jvmArguments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+</project>

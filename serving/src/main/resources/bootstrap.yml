@@ -1,0 +1,13 @@
+logging:
+   level:
+      org:
+         atmosphere: debug
+spring:
+  application:
+     name: application
+  
+  profiles:
+    active: production
+
+     
+       

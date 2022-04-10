@@ -1,0 +1,14 @@
+spring:
+  config:
+    import: 'zookeeper:192.168.0.3:2311'
+  cloud:
+    zookeeper:
+      config:
+       root: '/configs'
+       enabled: true
+       profileSeparator: '-'
+       watcher: 
+          enabled: false
+    
+     
+       
